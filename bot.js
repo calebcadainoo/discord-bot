@@ -1,6 +1,8 @@
 require('dotenv').config();
 const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+});
 const { BOT_TOKEN } = process.env;
 
 client.on('ready', () => {
@@ -11,8 +13,8 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', (msg) => {
-  console.log('msg: ', msg);
-  if (msg.content === 'ping') {
+  // console.log('msg: ', msg.content);
+  if (msg.content === 'pop') {
     // msg.channel.send('Not tagged');
     msg.reply('ooo you touched me...HAHA');
   }
